@@ -18,22 +18,22 @@ namespace SignalRExceptionExample.Server
 
         public async Task<IRootModel> Calculate(RootModel model)
         {
-            _logger.LogInformation("Starting calculation of {id}", model.Id);
+            _logger.LogWarning("Starting calculation of {id}", model.Id);
 
-            IRootModel result = _calculator.Calculate(model);
+            IRootModel result = await _calculator.Calculate(model);
 
-            _logger.LogInformation("Finished calculation of {id}", model.Id);
+            _logger.LogWarning("Finished calculation of {id}", model.Id);
 
             return result;
         }
 
         public async Task<IRootModel> CalculateWithConverter(RootModelWithConverter model)
         {
-            _logger.LogInformation("Starting calculation of {id}", model.Id);
+            _logger.LogWarning("Starting calculation of {id}", model.Id);
 
-            IRootModel result = _calculator.Calculate(model);
+            IRootModel result = await _calculator.Calculate(model);
 
-            _logger.LogInformation("Finished calculation of {id}", model.Id);
+            _logger.LogWarning("Finished calculation of {id}", model.Id);
 
             return result;
         }
